@@ -4,9 +4,10 @@
 # Load Dependencies -------------------------------------------------------
 
 library(tidyverse)
+library(shiny)
+library(shinydashboard)
 
-
-# Set Names ---------------------------------------------------------------
+# set names ---------------------------------------------------------------
 
 gl_v_project_name <<- base::system("git config --get remote.origin.url", intern = TRUE) |> 
   stringr::str_split("/") |> 
@@ -14,7 +15,8 @@ gl_v_project_name <<- base::system("git config --get remote.origin.url", intern 
   utils::tail(1) |> 
   stringr::str_remove(".git")
 
-print(paste("######", gl_v_project_name, "######"))
+print(paste("Initialize values and variables for", gl_v_project_name))
+
 
 # Branch-Check ------------------------------------------------------------
 
@@ -27,7 +29,7 @@ print(paste("Dev-mode is checked as:", gl_v_dev_mode))
 
 # Set functions path ------------------------------------------------------
 
-gl_v_functions_path <<- base::file.path(base::getwd(), "functions")
+gl_v_functions_path <<- base::file.path(base::getwd(), "../functions")
 
 l_all_functions <- base::list.files(gl_v_functions_path, full.names = TRUE)
 
@@ -42,3 +44,8 @@ base::invisible(
   )
 )
 print("Functions sucessfully loaded.")
+
+
+# finish ------------------------------------------------------------------
+
+print("init successfully sourced.")
