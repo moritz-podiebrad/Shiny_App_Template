@@ -6,10 +6,13 @@
 library(tidyverse)
 library(shiny)
 library(shinydashboard)
+library(waiter)
 
 # set names ---------------------------------------------------------------
 
-gl_v_project_name <<- base::system("git config --get remote.origin.url", intern = TRUE) |> 
+gl_v_repo_link <<- base::system("git config --get remote.origin.url", intern = TRUE)
+
+gl_v_project_name <<- gl_v_repo_link |> 
   stringr::str_split("/") |> 
   base::unlist() |> 
   utils::tail(1) |> 
