@@ -3,8 +3,8 @@
 tab_1_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tabPanel(
-    title = "info",
-    icon = shiny::icon(name = "info"),
+    title = "home",
+    icon = shiny::icon(name = "house", lib = "font-awesome"),
     
     shiny::wellPanel(
       shiny::HTML("
