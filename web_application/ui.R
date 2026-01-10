@@ -14,7 +14,13 @@ ui <-  shiny::fluidPage(
     ),
     shiny::column(
       width = 4,
-      shiny::actionButton("button_github", "Open Project on GitHub")
+      shiny::actionButton(
+        inputId = "button_github",
+        label = shiny::tagList(
+          shiny::icon(name = "github", lib = "font-awesome"),
+          "Open Project on GitHub"
+        )
+        )
     )
   ),
   
